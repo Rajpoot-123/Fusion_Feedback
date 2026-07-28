@@ -5,9 +5,9 @@ import { error } from "console";
 import { promises } from "dns";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PATCH(request: NextRequest,{params}:{params:Promise<{id:number}>}){
+export async function PATCH(request: NextRequest,{params}:{params:Promise<{id:string}>}){
 	try{
-        const {userId}=await auth();
+        const {userId}=await auth();    
         if(!userId){
             return NextResponse.json({error:"Unauthorized"},{status:401});
         }
